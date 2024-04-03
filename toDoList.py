@@ -1,4 +1,3 @@
-# todo_app.py
 class ToDoList:
     def __init__(self):
         self.tasks = []
@@ -7,8 +6,10 @@ class ToDoList:
         self.tasks.append(task)
 
     def delete_task(self, task):
-        self.tasks.remove(task)
+        if task in self.tasks:
+            self.tasks.remove(task)
+        else:
+            print("Task not found!")
 
     def get_tasks(self):
         return self.tasks
-
