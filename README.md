@@ -1,1 +1,1 @@
-# to_do_app
+To run the unit tests, execute the unit_tests.py file. You can do this by running python unit_tests.py in your terminal. If all tests pass, you should see an output indicating that all tests ran successfully. If any test fails, you'll see an error message detailing which test failed and why.
