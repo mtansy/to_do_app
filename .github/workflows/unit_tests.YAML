@@ -1,0 +1,45 @@
+name: Run Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Replace with your dependency installation command
+    
+    - name: Run unit tests
+      run: python3 unit_tests.py
+    
+    - name: Check test status
+      run: |
+        if [ $? -ne 0 ]; then
+          echo "Tests failed! Please fix them before merging."
+          exit 1
+        fi
+        
+    - name: Set status check
+      uses: actions/github-script@v4
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          await github.repos.createStatus({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            sha: context.sha,
+            state: 'success',
+            context: 'unit-tests'
+          })
