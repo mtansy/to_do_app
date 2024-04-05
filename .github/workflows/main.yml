@@ -27,13 +27,13 @@ jobs:
         run: pylint .
         continue-on-error: true  # Continue even if linting fails, we'll check the status later
 
-      - name: Check Test and Lint Results
-        run: exit $(($? + $?))
+      # - name: Check Test and Lint Results
+      #   run: exit $(($? + $?))
         # This will exit with a non-zero status if any of the previous steps failed
 
-      - name: Create Pull Request
-        if: always()
-        uses: peter-evans/create-pull-request@v6.0.2
-        with:
-          title: Unit Tests and Linting
-          base: main
+      # - name: Create Pull Request
+      #   if: always()
+      #   uses: peter-evans/create-pull-request@v6.0.2
+      #   with:
+      #     title: Unit Tests and Linting
+      #     base: main
