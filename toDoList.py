@@ -1,5 +1,5 @@
 """
-This module defines a simple ToDoList class.
+This module defines a simple ToDoList class..
 """
 
 class ToDoList:
