@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from toDoList import ToDoList
+from ToDoList import ToDoList
 
 class TestToDoList(unittest.TestCase):
     def setUp(self):
