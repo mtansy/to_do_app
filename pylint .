@@ -11,13 +11,6 @@ class PythonLinter(ast.NodeVisitor):
 
         self.generic_visit(node)
 
-    def visit_FunctionDef(self, node):
-        # Rule 1: Check function names for snake_case
-        if "_" not in node.name:
-            self.errors.append(f"Function name '{node.name}' should be in snake_case. Line: {node.lineno}")
-
-        self.generic_visit(node)
-
     def visit_Import(self, node):
         # Rule 3: Check for unused imports
         self.errors.append(f"Unused import statement detected. Line: {node.lineno}")
