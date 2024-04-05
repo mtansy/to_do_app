@@ -30,7 +30,7 @@ def lint_python_code(code):
     return linter.errors
 
 if __name__ == "__main__":
-    with open("toDoList.py", "r") as file:
+    with open("ToDo.py", "r") as file:
         python_code = file.read()
 
     errors = lint_python_code(python_code)
