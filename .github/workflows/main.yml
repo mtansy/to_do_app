@@ -29,7 +29,7 @@ jobs:
         continue-on-error: true  # Continue even if tests fail, we'll check the status later
 
       - name: Run Linter
-        run: pylint ToDo.py
+        run: pylint to_do.py
         continue-on-error: true  # Continue even if linting fails, we'll check the status later
 
       # - name: Check Test and Lint Results
