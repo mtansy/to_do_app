@@ -2,14 +2,15 @@ class ToDoList:
     def __init__(self):
         self.tasks = []
 
-    def add_task(self, task):
-        self.tasks.append(task)
+    def add_task(self, task, priority):
+        self.tasks.append([task, priority])
 
     def delete_task(self, task):
-        if task in self.tasks:
-            self.tasks.remove(task)
-        else:
-            print("Task not found!")
+        for list in self.tasks:
+            if task in list:
+                self.tasks.remove(list)
+                return
+        print("Task not found!")
 
     def get_tasks(self):
         return self.tasks
